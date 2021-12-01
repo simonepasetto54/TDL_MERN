@@ -8,7 +8,7 @@ export default function notesReducer(state = initialState.notes, action) {
         case types.CREATE_NOTES_SUCCESS:
             return [...state, { ...action.notes }];
         case types.DELETE_NOTES_SUCCESS:
-            return action.notes;
+            return state.filter(notes => notes._id !== action.notes._id);;
         default:
             return state;
     }

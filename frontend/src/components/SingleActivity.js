@@ -14,9 +14,8 @@ const SingleActivity = ({ note }) => {
 
     const dispatch = useDispatch();
 
-    const deleteHandler = (e) => {
-        e.preventDefault();
-        dispatch(deleteNotes(e.target.value));
+    const deleteHandler = (id) => {
+        dispatch(deleteNotes(id));
     }
 
     return (
@@ -43,7 +42,7 @@ const SingleActivity = ({ note }) => {
                             {note.endDate}
                         </div>
                         <div className="col-md-2 text-center">
-                            <i class="bi bi-trash" onClick={deleteHandler}></i>
+                            <i class="bi bi-trash" onClick={() => deleteHandler(note._id)}></i>
                         </div>
                     </div>
                 </Card.Header>

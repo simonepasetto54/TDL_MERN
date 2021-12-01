@@ -9,8 +9,8 @@ export function createNotesSuccess(notes) {
     return { type: types.CREATE_NOTES_SUCCESS, notes };
 }
 
-export function deleteNotesSuccess(id) {
-    return { type: types.DELETE_NOTES_SUCCESS, id }
+export function deleteNotesSuccess(notes) {
+    return { type: types.DELETE_NOTES_SUCCESS, notes }
 }
 
 
@@ -31,10 +31,8 @@ export const createNotes = (title, content, priority, startDate, endDate) => asy
     dispatch(createNotesSuccess(data));
 }
 
-export const deleteNotes = (_id) => async (dispatch) => {
-    const { data } = await axios.delete('/api/notes/delete', {
-        _id
-    });
+export const deleteNotes = (id) => async (dispatch) => {
+    const { data } = await axios.delete(`/api/notes/${id}`);
     dispatch(deleteNotesSuccess(data))
 }
 

@@ -24,4 +24,16 @@ const createNotes = asyncHandler(
     }
 );
 
-module.exports = { getNotes, createNotes }
+const deleteNotes = asyncHandler(async (req, res) => {
+    const note = await Note.findById(req.params.id);
+
+    if (note) {
+        await note.remove();
+        res.json(note);
+    } else {
+        res.status(404);
+        throw new Error("Note not Found");
+    }
+});
+
+module.exports = { getNotes, createNotes, deleteNotes }

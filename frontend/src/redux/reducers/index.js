@@ -1,8 +1,8 @@
 import { combineReducers } from "redux";
-import catalogue from "./catalogueReducer";
+import notes from "./notesReducer";
 
 const reducersManager = combineReducers({
-    catalogue
+    notes
 })
 
 export default reducersManager

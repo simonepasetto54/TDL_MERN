@@ -10,7 +10,15 @@ const noteSchema = mongoose.Schema(
             type: String,
             required: true,
         },
-        category: {
+        priority: {
+            type: String,
+            required: true,
+        },
+        startDate: {
+            type: String,
+            required: true,
+        },
+        endDate: {
             type: String,
             required: true,
         },

@@ -10,12 +10,12 @@ const getNotes = asyncHandler(
 
 const createNotes = asyncHandler(
     async (req, res) => {
-        const { title, content, category } = req.body;
-        if (!title || !content || !category) {
+        const { title, content, priority, startDate, endDate } = req.body;
+        if (!title || !content || !priority || !startDate || !endDate) {
             res.status(400);
             throw new Error('Completare tutti i campi');
         } else {
-            const note = new Note({ title, content, category });
+            const note = new Note({ title, content, priority, startDate, endDate });
 
             const createdNote = await note.save();
 

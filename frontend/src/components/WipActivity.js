@@ -1,22 +1,17 @@
-import { React, useEffect, useState } from "react";
-import axios from 'axios';
+import { React, useEffect } from "react";
 import SingleActivity from "./SingleActivity";
 import CreateActivity from "./CreateActivity";
-
-
+import { useDispatch, useSelector } from 'react-redux'
+import { loadNotes } from "../redux/actions/notesActions";
 
 const WipActivity = () => {
-
-    const [notes, setNotes] = useState([]);
-
-    const getNotes = async () => {
-        const { data } = await axios.get('/api/notes');
-        setNotes(data)
-    }
+    const dispatch = useDispatch();
+    const noteList = useSelector(state => state.notes);
+    const notes = noteList;
 
     useEffect(() => {
-        getNotes();
-    }, []);
+        dispatch(loadNotes())
+    }, [dispatch]);
 
     return (
         <div className="container mb-5">
@@ -37,7 +32,8 @@ const WipActivity = () => {
             </div>
 
             {
-                notes.map((note, id) => (
+
+                notes?.reverse().map((note, id) => (
                     <SingleActivity key={id} note={note}></SingleActivity>
                 ))
             }

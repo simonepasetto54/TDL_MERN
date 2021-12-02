@@ -1,8 +1,10 @@
 import { React, useEffect } from "react";
 import SingleActivity from "./SingleActivity";
 import CreateActivity from "./CreateActivity";
-import { useDispatch, useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux';
 import { loadNotes } from "../redux/actions/notesActions";
+import Table from 'react-bootstrap/Table';
+
 
 const WipActivity = () => {
     const dispatch = useDispatch();
@@ -24,19 +26,24 @@ const WipActivity = () => {
                     <CreateActivity></CreateActivity>
                 </div>
             </div>
-            <div className="row">
-                <div className="col-md-6">Attività</div>
-                <div className="col-md-2">Priorità</div>
-                <div className="col-md-2">Data di apertura</div>
-                <div className="col-md-2">Data di scadenza</div>
-            </div>
+            <Table className="text-white" responsive>
+                <thead>
+                    <tr>
+                        <th>Attività</th>
+                        <th>Priorità</th>
+                        <th>Data di apertura</th>
+                        <th>Data di scadenza</th>
+                        <th>Azioni</th>
 
-            {
+                    </tr>
+                </thead>
+                {
 
-                notes?.reverse().map((note, id) => (
-                    <SingleActivity key={id} note={note}></SingleActivity>
-                ))
-            }
+                    notes?.reverse().map((note, id) => (
+                        <SingleActivity key={id} note={note}></SingleActivity>
+                    ))
+                }
+            </Table>
         </div>
     );
 

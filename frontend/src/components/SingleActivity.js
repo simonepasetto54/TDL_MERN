@@ -19,47 +19,37 @@ const SingleActivity = ({ note }) => {
     }
 
     return (
-        <Accordion style={{ marginBottom: '10px' }}>
-            <Card>
-                <Card.Header>
-                    <div className="row">
-                        <div className="col-md-4">
-                            <CustomToggle eventKey={note._id}>{note.title}</CustomToggle>
 
-                        </div>
-                        <div className="col-md-2">  {/*this is an else if ternary operator */}
-                            <Badge pill bg={
-                                note.priority === 'High' ? 'danger'
-                                    :
-                                    note.priority === 'Medium' ? 'warning'
-                                        : 'info'
-                            }>{note.priority}</Badge>
-                        </div>
-                        <div className="col-md-2">
-                            {note.startDate}
-                        </div>
-                        <div className="col-md-2">
-                            {note.endDate}
-                        </div>
-                        <div className="col-md-2 text-center">
-                            <i class="bi bi-trash" onClick={() => deleteHandler(note._id)}></i>
-                        </div>
-                    </div>
-                </Card.Header>
-                <Accordion.Collapse eventKey={note._id}>
-                    <Card.Body>
-                        <blockquote className="blockquote mb-0">
-                            <p>
-                                {note.content}
-                            </p>
-                        </blockquote>
-                    </Card.Body>
-                </Accordion.Collapse>
-
-            </Card>
-        </Accordion>
-
-
+        <tbody>
+            <tr>
+                <td>
+                    <Accordion>
+                        <CustomToggle eventKey={note._id}>{note.title}</CustomToggle>
+                        <Accordion.Collapse eventKey={note._id}>
+                            <Card.Body>
+                                <blockquote className="blockquote mb-0">
+                                    <p>
+                                        {note.content}
+                                    </p>
+                                </blockquote>
+                            </Card.Body>
+                        </Accordion.Collapse>
+                    </Accordion>
+                </td>
+                <td>
+                    <Badge pill bg={
+                        note.priority === 'High' ? 'danger'
+                            :
+                            note.priority === 'Medium' ? 'warning'
+                                : 'info'
+                    }>{note.priority}
+                    </Badge>
+                </td>
+                <td>{note.startDate}</td>
+                <td>{note.endDate}</td>
+                <td><i class="bi bi-check-circle" onClick={() => deleteHandler(note._id)}></i></td>
+            </tr >
+        </tbody >
     )
 
 };

@@ -50,7 +50,7 @@ export function CreateActivity() {
 
               <Form.Group className="mb-3" controlId="Content">
                 <Form.Label>Descrizione</Form.Label>
-                <Form.Control value={content} onChange={(e) => setContent(e.target.value)} placeholder="Inserisci qui una breve descrizione della tua nota" />
+                <Form.Control as="textarea" rows={3} value={content} onChange={(e) => setContent(e.target.value)} placeholder="Inserisci qui una breve descrizione della tua nota" />
               </Form.Group>
 
               <Form.Group className="mb-3" controlId="Priority">

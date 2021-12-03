@@ -16,9 +16,7 @@ const createNotes = asyncHandler(
             throw new Error('Completare tutti i campi');
         } else {
             const note = new Note({ title, content, priority, startDate, endDate });
-
             const createdNote = await note.save();
-
             res.status(201).json(createdNote);
         }
     }
@@ -26,7 +24,6 @@ const createNotes = asyncHandler(
 
 const deleteNotes = asyncHandler(async (req, res) => {
     const note = await Note.findById(req.params.id);
-
     if (note) {
         await note.remove();
         res.json(note);

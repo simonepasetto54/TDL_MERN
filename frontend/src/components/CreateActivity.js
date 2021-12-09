@@ -1,4 +1,4 @@
-import { React, useState } from "react";
+import { React, useState, useEffect } from "react";
 import Modal from 'react-bootstrap/Modal';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form'
@@ -24,9 +24,11 @@ export function CreateActivity() {
     if (!title || !content || !priority || !startDate || !endDate) return;
     dispatch(createNotes(title, content, priority, startDate, endDate));
     handleClose();
-
-
   }
+
+  useEffect(() => {
+    console.log('create activity component caricato')
+  }, []);
 
 
   return (

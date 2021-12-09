@@ -12,6 +12,7 @@ const WipActivity = () => {
     const notes = noteList;
 
     useEffect(() => {
+        console.log('wip activity caricato')
         dispatch(loadNotes())
     }, [dispatch]);
 

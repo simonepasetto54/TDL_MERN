@@ -47,7 +47,7 @@ const SingleActivity = ({ note }) => {
                 </td>
                 <td>{note.startDate}</td>
                 <td>{note.endDate}</td>
-                <td><i class="bi bi-check-circle" onClick={() => deleteHandler(note._id)}></i></td>
+                <td><i className="bi bi-check-circle" onClick={() => deleteHandler(note._id)}></i></td>
             </tr >
         </tbody >
     )

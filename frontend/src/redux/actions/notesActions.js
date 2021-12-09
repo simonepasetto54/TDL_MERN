@@ -20,7 +20,7 @@ export const loadNotes = () => async (dispatch) => {
 }
 
 
-export const createNotes = (title, content, priority, startDate, endDate) => async (dispatch) => {
+export const createNotes = ({ title, content, priority, startDate, endDate }) => async (dispatch) => {
     const { data } = await axios.post('/api/notes/create', {
         title,
         content,

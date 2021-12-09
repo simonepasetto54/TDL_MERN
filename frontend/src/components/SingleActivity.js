@@ -7,9 +7,6 @@ import Badge from 'react-bootstrap/Badge';
 import { useDispatch } from 'react-redux'
 import { deleteNotes } from "../redux/actions/notesActions";
 
-
-
-
 const SingleActivity = ({ note }) => {
 
     const dispatch = useDispatch();

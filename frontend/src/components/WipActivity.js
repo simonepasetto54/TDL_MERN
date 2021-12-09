@@ -7,7 +7,9 @@ import Table from 'react-bootstrap/Table';
 
 
 const WipActivity = () => {
+
     const dispatch = useDispatch();
+
     const noteList = useSelector(state => state.notes);
     const notes = noteList;
 
